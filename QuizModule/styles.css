@@ -1,16 +1,21 @@
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: Gotham Rounded;
+  font-family: sans-serif;
 }
 
 :root {
-  --hue-neutral: 200;
-  --hue-wrong: 0;
-  --hue-correct: 145;
+  background-image: url("../images/quiz_background.jpg");
+}
+
+#question_image{
+  margin: 10px;
+  border: 3px black double;
+  border-radius: 10px;
+  object-fit: scale-down;
 }
 
 body {
-  --hue: var(--hue-neutral);
+  
   padding: 0;
   margin: 0;
   display: flex;
@@ -22,11 +27,11 @@ body {
 }
 
 body.correct {
-  --hue: var(--hue-correct);
+  background-image: url("../images/quiz_background.jpg");
 }
 
 body.wrong {
-  --hue: var(--hue-wrong);
+  background-image: url("../images/quiz_background.jpg");
 }
 
 .container {
