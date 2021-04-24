@@ -10,6 +10,8 @@ var isTimerStarted = false;
 var timer = new easytimer.Timer();
 
 
+
+
 let shuffledQuestions, currentQuestionIndex
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -47,7 +49,30 @@ function setNextQuestion() {
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
+var counter = 0;
+var points = 0;
 function showQuestion(question) {
+ 
+  counter++;
+  
+  
+  
+  //Set image
+  if(!Boolean(question.image)){
+    $('#question_image').hide();
+  }
+  else{
+    $('#question_image').show();
+    $('#question_image').attr('src', question.image);
+  }
+
+
+  points += getPoints(question.difficulty);
+
+
+  //Set Question Number
+  $('#question-title').text(`Question # ${counter} | ( ${getPoints(question.difficulty)} points)`);
+
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
@@ -59,6 +84,16 @@ function showQuestion(question) {
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })
+}
+
+function getPoints(d){
+  if(d === "Easy")
+    return 1;
+  if(d === "Medium")
+    return 3;
+  if(d === "Hard")
+    return 5;  
+  
 }
 
 function resetState() {
@@ -76,9 +111,13 @@ function selectAnswer(e) {
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+  console.log(shuffledQuestions.length);
+  console.log(currentQuestionIndex);
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
+
+   
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
     timer.stop();
@@ -101,38 +140,56 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: 'What is 2 + 2?',
+    question: 'Is this website secure ?',
+    image:'https://i.ibb.co/K0KP7HF/quiz-1.png',
+    difficulty : "Easy",
+    category : "Internet",
+    answers: [
+      { text: 'Yes !', correct: false },
+      { text: 'No !', correct: true }
+    ]
+  },
+  {
+    question: 'Is this webstie safe to secure to give data ?',
+    image:'https://i.ibb.co/tP5TR8V/quiz-2.png',
+    difficulty : "Easy",
+    category : "Internet",
+    answers: [
+      { text: 'Yes !', correct: true },
+      { text: 'No !', correct: false }
+    ]
+  },
+  {
+
+    question: 'A dialog says that it is from an unknown person, should we click on run ?',
+    image:'https://i.ibb.co/YjWVG4f/quiz-5.png',
+    difficulty : "Hard",
+    category : "Virus",
+    answers: [
+      { text: 'Yes !', correct: false },
+      { text: 'No !', correct: true }
+    ]
+  },
+  {
+    question: 'An email says that you have won a big amount of money, shall we believe it ?',
+    image:'https://i.ibb.co/YjWVG4f/quiz-5.png',
+    difficulty : "Easy",
+    category : "Phishing",
+    answers: [
+      { text: 'Yes !', correct: false },
+      { text: 'No !', correct: true }
+    ]
+  },
+  {
+    question: 'Should we share our password with a friend?',
     image:'',
-    difficulty : "High",
-    category : "",
+    difficulty : "Medium",
+    category : "Privacy",
     answers: [
-      { text: '4', correct: true },
-      { text: '22', correct: false }
-    ]
-  },
-  {
-    question: 'Who is the best YouTuber?',
-    answers: [
-      { text: 'Web Dev Simplified', correct: true },
-      { text: 'Traversy Media', correct: true },
-      { text: 'Dev Ed', correct: true },
-      { text: 'Fun Fun Function', correct: true }
-    ]
-  },
-  {
-    question: 'Is web development fun?',
-    answers: [
-      { text: 'Kinda', correct: false },
-      { text: 'YES!!!', correct: true },
-      { text: 'Um no', correct: false },
-      { text: 'IDK', correct: false }
-    ]
-  },
-  {
-    question: 'What is 4 * 2?',
-    answers: [
-      { text: '6', correct: false },
-      { text: '8', correct: true }
+      { text: 'Yes !', correct: false },
+      { text: 'No !', correct: true }
     ]
   }
+
+  
 ]
