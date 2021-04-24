@@ -1,35 +1,45 @@
+// buttons definition
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
-let shuffledQuestions, currentQuestionIndex
 
+var isTimerStarted = false;
+var timer = new easytimer.Timer();
+
+
+let shuffledQuestions, currentQuestionIndex
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++
   setNextQuestion()
 })
 
+
 function startGame() {
+  if(!isTimerStarted){
+    
+    timer.start({countdown: true, startValues: {seconds: 30}});
+    
+    $('#countdonwnvalue').html(timer.getTimeValues().toString());
+    
+    timer.addEventListener('secondsUpdated', function (e) {
+        $('#countdonwnvalue').html(timer.getTimeValues().toString());
+    });
+    
+    isTimerStarted = true;
+  
+  }
+  
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
 
-    var timer = new Timer('100 milliseconds');
 
-    timer.every('1 seconds', function () {
-        console.log('timer event every 1 seconds');
-    });
-
-    timer.every('3 seconds', function () {
-        console.log('timer event every 3 seconds');
-    });
-
-    timer.start();
 }
 
 function setNextQuestion() {
@@ -71,6 +81,7 @@ function selectAnswer(e) {
   } else {
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
+    timer.stop();
   }
 }
 
@@ -91,6 +102,9 @@ function clearStatusClass(element) {
 const questions = [
   {
     question: 'What is 2 + 2?',
+    image:'',
+    difficulty : "High",
+    category : "",
     answers: [
       { text: '4', correct: true },
       { text: '22', correct: false }
