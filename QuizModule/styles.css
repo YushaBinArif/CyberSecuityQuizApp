@@ -4,18 +4,20 @@
 }
 
 :root {
-  background-image: url("../images/quiz_background.jpg");
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+  
 }
 
 #question_image{
   margin: 10px;
   border: 3px black double;
   border-radius: 10px;
-  object-fit: scale-down;
 }
 
 body {
-  
+  --hue: var(--hue-neutral);
   padding: 0;
   margin: 0;
   display: flex;
@@ -23,15 +25,18 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: hsl(var(--hue), 100%, 20%);
+  background-image: url("../images/quiz_background_new.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body.correct {
-  background-image: url("../images/quiz_background.jpg");
+  --hue: var(--hue-correct);
 }
 
 body.wrong {
-  background-image: url("../images/quiz_background.jpg");
+  --hue: var(--hue-wrong);
 }
 
 .container {

@@ -283,41 +283,75 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">1140</h2>
-                                    <span class="desc">Total Students</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-account-o"></i>
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Manage Quiz</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Question</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control">
+                                                    <small class="form-text text-muted">Please Enter Question Here</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Image URL</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="email-input" name="email-input" placeholder="Image URL" class="form-control">
+                                                    <small class="help-block form-text">Please enter image url</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="password-input" class=" form-control-label">Option # 1</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="password-input" name="password-input" placeholder="Option#1" class="form-control">
+                                                    <small class="help-block form-text">Please enter a option # 1 here</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="password-input" class=" form-control-label">Option # 2</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="password-input" name="password-input" placeholder="Option # 2" class="form-control">
+                                                    <small class="help-block form-text">Option # 2</small>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Correct Option</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="select" class="form-control">
+                                                        <option value="0">Please select</option>
+                                                        <option value="1">Option #1</option>
+                                                        <option value="2">Option #2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="far fa-check-circle"></i> Submit
+                                        </button>
+                                        <button type="reset" class="btn btn-danger">
+                                            <i class="fa fa-ban"></i> Reset
+                                        </button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">125</h2>
-                                    <span class="desc">Highest Score</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-flag"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">77</h2>
-                                    <span class="desc">Average Score</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-calendar-note"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">Internet</h2>
-                                    <span class="desc">Top Category</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-code"></i>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -325,103 +359,7 @@
             </section>
             <!-- END STATISTIC-->
 
-            <section>
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-8">
-                                <!-- RECENT REPORT 2-->
-                                <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>Date</th>
-                                                <th>Name</th>
-                                                <th>Score</th>
-                                                <th>Status</th>
-                                                <th>Rank</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>04/25/2021</td>
-                                                <td>Tony Stark</td>
-                                                <td>85</td>
-                                                <td class="process">Passed</td>
-                                                <td>1st</td>
-                                            </tr>
-                                            <tr>
-                                                <td>03/25/2021</td>
-                                                <td>Arya Stark</td>
-                                                <td>83</td>
-                                                <td class="process">Passed</td>
-                                                <td>2nd</td>
-                                            </tr>
-                                            <tr>
-                                                <td>01/25/2021</td>
-                                                <td>Mike William</td>
-                                                <td>66</td>
-                                                <td class="process">Passed</td>
-                                                <td>3rd</td>
-                                            </tr>
-                                            <tr>
-                                                <td>02/25/2021</td>
-                                                <td>Ronald Reagen</td>
-                                                <td>33</td>
-                                                <td class="denied">Failed</td>
-                                                <td>-</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END RECENT REPORT 2             -->
-                            </div>
-                            <div class="col-xl-4">
-                                <!-- TASK PROGRESS-->
-                                <div class="task-progress">
-                                    <h3 class="title-3">Quiz Categories</h3>
-                                    <div class="au-skill-container">
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">Internet</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="40">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">Phising</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="40">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">Virus</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="20">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">Privacy</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="20">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END TASK PROGRESS-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+           
            
 
             <section>

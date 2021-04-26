@@ -2,12 +2,14 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
+const countdowntimer = document.getElementById('countdonwnvalue')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
 
 var isTimerStarted = false;
 var timer = new easytimer.Timer();
+var isReturnHome = false;
 
 
 
@@ -21,6 +23,11 @@ nextButton.addEventListener('click', () => {
 
 
 function startGame() {
+  if(isReturnHome){
+    window.location.replace("../index.html");
+  }
+    
+
   if(!isTimerStarted){
     
     timer.start({countdown: true, startValues: {seconds: 30}});
@@ -39,6 +46,7 @@ function startGame() {
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
+  countdowntimer.classList.remove('hide')
   setNextQuestion()
 
 
@@ -107,7 +115,7 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
+  //setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
@@ -120,6 +128,7 @@ function selectAnswer(e) {
    
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
+    isReturnHome = true;
     timer.stop();
   }
 }
